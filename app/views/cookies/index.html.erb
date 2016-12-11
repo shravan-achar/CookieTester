@@ -28,6 +28,10 @@
   <div class="container" style = "font-family: 'Karla', sans-serif; background: #fff; margin-top: 1%; border-radius: 10px;  opacity:0.95">
     <h1>Network Security Project</h1>
     <p> By Raghav, Guru, Rish and Jason</p>
+    <p>
+    <button type="button" class="btn btn-secondary" onclick="addCookie();">Add Insecure Cookie</button>
+    </br>
+    </p>
     <blockquote>
     <p id = "cookies">
     </p>
@@ -41,18 +45,20 @@
 
     <script type="text/javascript">
 
-      function createCookie(name,value) {
+     function createCookie(name,value) {
       var expires = "";
-      var security = "; secure";
+      var security = "";
       document.cookie = name+"="+value+ security + expires+"; path=/";
       refreshCookies();
-  }
+    }
     function refreshCookies()
     {
         var theCookies = document.cookie.split(';');
         var aString = '';
         for (var i = 1 ; i <= theCookies.length; i++) {
             aString +=   '<span class="badge">'+theCookies[i-1].split('=')[0] + "\n"+'</span>';
+            if(i % 10 == 0)
+              aString += '</br>';
         }
 
         document.getElementById("cookies").innerHTML = aString;
@@ -60,7 +66,17 @@
 
     for(i =1; i < 150; i++)
     {
-      createCookie("SecCook"+i, "value"+i);
+      createCookie("InSecCook"+i, "value"+i);
+    }
+
+    i = 2;
+    function addCookie()
+    {
+      var expires = "";
+      var security = "";
+      document.cookie = "NewInSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
+      i++;
+      refreshCookies();
     }
     </script>
   </body>
