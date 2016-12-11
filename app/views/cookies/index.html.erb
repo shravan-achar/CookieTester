@@ -30,6 +30,7 @@
     <p> By Raghav, Guru, Rish and Jason</p>
     <p>
     <button type="button" class="btn btn-secondary" onclick="addCookie();">Add Insecure Cookie</button>
+    <button type="button" class="btn btn-secondary" onclick="addSecCookie();">Add Secure Cookie</button>
     </br>
     </p>
     <blockquote>
@@ -69,13 +70,23 @@
       createCookie("InSecCook"+i, "value"+i);
     }
 
-    i = 2;
+    i = 1;
     function addCookie()
     {
       var expires = "";
       var security = "";
       document.cookie = "NewInSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
       i++;
+      refreshCookies();
+    }
+
+    y = 1;
+    function addSecCookie()
+    {
+      var expires = "";
+      var security = "; secure";
+      document.cookie = "NewSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
+      y++;
       refreshCookies();
     }
     </script>
