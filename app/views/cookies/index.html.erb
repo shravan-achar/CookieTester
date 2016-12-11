@@ -36,6 +36,8 @@
     <p>
     Number of Cookies : <input type="text" class="form-control" id="val" style="width:200px;"/>
     </br>
+    <input type="checkbox" value="true" id = "exp">Expire in 10 Seconds</label>
+    <br/>
     <button type="button" class="btn btn-secondary" onclick="addCookie();">Add Insecure Cookie</button>
     <button type="button" class="btn btn-secondary" onclick="addSecCookie();">Add Secure Cookie</button>
     </br>
@@ -56,6 +58,12 @@
      function createCookie(name,value) {
       var expires = "";
       var security = "";
+      if(document.getElementById("exp").checked)
+      {
+        var date = new Date();
+        date.setTime(date.getTime()+(10*1000));
+        expires = "; expires="+date.toGMTString();
+      } 
       document.cookie = name+"="+value+ security + expires+"; path=/";
       refreshCookies();
     }
@@ -77,11 +85,17 @@
     function addCookie()
     {
       var val = document.getElementById('val').value;
+      var expires = "";
+      if(document.getElementById("exp").checked)
+      {
+        var date = new Date();
+        date.setTime(date.getTime()+(10*1000));
+        expires = "; expires="+date.toGMTString();
+      }   
 
       for(k = 1; k <= val; k++){
-      var expires = "";
       var security = "";
-      document.cookie = "NewInSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
+      document.cookie = "InSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
       i++;
     }
       refreshCookies();
@@ -91,11 +105,16 @@
     function addSecCookie()
     {
       var val = document.getElementById('val').value;
-      
-      for(k = 1; k <= val; k++){
       var expires = "";
+      if(document.getElementById("exp").checked)
+      {
+        var date = new Date();
+        date.setTime(date.getTime()+(10*1000));
+        expires = "; expires="+date.toGMTString();
+      } 
+      for(k = 1; k <= val; k++){
       var security = "; secure";
-      document.cookie = "NewSecCook"+y+"="+"dummy"+ security + expires+"; path=/";
+      document.cookie = "SecCook"+y+"="+"dummy"+ security + expires+"; path=/";
       y++;
     }
       refreshCookies();
