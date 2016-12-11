@@ -14,7 +14,12 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-
+     
+    <style>
+    .badge{
+      font-size: 14px;
+    }
+    </style> 
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -29,6 +34,8 @@
     <h1>Network Security Project</h1>
     <p> By Raghav, Guru, Rish and Jason</p>
     <p>
+    Number of Cookies : <input type="text" class="form-control" id="val" style="width:200px;"/>
+    </br>
     <button type="button" class="btn btn-secondary" onclick="addCookie();">Add Insecure Cookie</button>
     <button type="button" class="btn btn-secondary" onclick="addSecCookie();">Add Secure Cookie</button>
     </br>
@@ -65,28 +72,32 @@
         document.getElementById("cookies").innerHTML = aString;
     }
 
-    for(i =1; i < 150; i++)
-    {
-      createCookie("InSecCook"+i, "value"+i);
-    }
-
+    
     i = 1;
     function addCookie()
     {
+      var val = document.getElementById('val').value;
+
+      for(k = 1; k <= val; k++){
       var expires = "";
       var security = "";
       document.cookie = "NewInSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
       i++;
+    }
       refreshCookies();
     }
 
     y = 1;
     function addSecCookie()
     {
+      var val = document.getElementById('val').value;
+      
+      for(k = 1; k <= val; k++){
       var expires = "";
       var security = "; secure";
       document.cookie = "NewSecCook"+y+"="+"dummy"+ security + expires+"; path=/";
       y++;
+    }
       refreshCookies();
     }
     </script>
