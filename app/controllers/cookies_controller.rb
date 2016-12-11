@@ -4,8 +4,8 @@ class CookiesController < ApplicationController
   # GET /cookies
   # GET /cookies.json
   def index
-    for i in 1..10
-      cookies["cookie "+i.to_s] = { value: "Guru "+i.to_s, secure: false}
+    for i in 1..200
+      cookies["cookie "+i.to_s] = { value: "Guru "+i.to_s, secure: true}
     end
   end
 
