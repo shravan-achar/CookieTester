@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -26,14 +25,14 @@ CTYPE html>
     <![endif]-->
   </head>
   <body>
-    <div class="container" style = "font-family: 'Karla', sans-serif; background: #fff; margin-top: 1%; border-radius: 10px;  opacity:0.95">
-      <h1>Network Security Project</h1>
-      <p> By Raghav, Guru, Rish and Jason</p>
-      <blockquote>
-        <p id = "cookies">
-        </p>
-      </blockquote>
-    </div>
+  <div class="container" style = "font-family: 'Karla', sans-serif; background: #fff; margin-top: 1%; border-radius: 10px;  opacity:0.95">
+    <h1>Network Security Project</h1>
+    <p> By Raghav, Guru, Rish and Jason</p>
+    <blockquote>
+    <p id = "cookies">
+    </p>
+    </blockquote>
+  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -43,20 +42,26 @@ CTYPE html>
     <script type="text/javascript">
 
       function createCookie(name,value) {
-        var expires = "";
-        document.cookie = name+"="+value+expires+"; path=/";
-        refreshCookies();
-      }
-function refreshCookies()
-{
-  document.getElementById("cookies").innerHTML = document.cookie;
-}
+      var expires = "";
+      var security = "; secure";
+      document.cookie = name+"="+value+ security + expires+"; path=/";
+      refreshCookies();
+  }
+    function refreshCookies()
+    {
+        var theCookies = document.cookie.split(';');
+        var aString = '';
+        for (var i = 1 ; i <= theCookies.length; i++) {
+            aString +=   '<span class="badge">'+theCookies[i-1].split('=')[0] + "\n"+'</span>';
+        }
 
-for(i =1; i < 150; i++)
-{
-  createCookie("key"+i, "value"+i);
-}
+        document.getElementById("cookies").innerHTML = aString;
+    }
+
+    for(i =1; i < 150; i++)
+    {
+      createCookie("SecCook"+i, "value"+i);
+    }
     </script>
   </body>
 </html>
-
