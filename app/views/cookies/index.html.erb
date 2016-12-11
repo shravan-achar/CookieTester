@@ -5,17 +5,11 @@
 document.cookie = "username=John Smith; expires=Thu, 18 Dec 2020 12:00:00 UTC; path=/";
 </script>
 
+<div id = "data">
+</div>
 
-<table border="1">
-  <tbody>
-    <% cookies.each do |key,c| %>
-      <tr>
-        <td><%= key+" = "+c %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<script>
+  document.getElementById("data").innerHTML = document.cookie
+</script>
 
-<br>
 
-<%= link_to 'New Cooky', new_cooky_path %>>
