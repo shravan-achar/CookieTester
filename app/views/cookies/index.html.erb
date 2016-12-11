@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cookies</h1>
+
+
+
+<table border="1">
+  <tbody>
+    <% cookies.each do |key,c| %>
+      <tr>
+        <td><%= key+" = "+c %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cooky', new_cooky_path %>
