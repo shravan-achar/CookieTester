@@ -1,124 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-     
+<!doctype HTML>
+<html>
+<head>
+    <title>HTML Image Map</title>
     <style>
-    .badge{
-      font-size: 14px;
-    }
-    </style> 
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-  <div class="container" style = "font-family: 'Karla', sans-serif; background: #fff; margin-top: 1%; border-radius: 10px;  opacity:0.95">
-    <h1>Network Security Project</h1>
-    <p> By Raghav, Guru, Rish and Jason</p>
-    <p>
-    Number of Cookies : <input type="text" class="form-control" id="val" style="width:200px;"/>
-    </br>
-    <input type="checkbox" value="true" id = "exp">Expire in 10 Seconds</label>
-    <br/>
-    <button type="button" class="btn btn-secondary" onclick="addCookie();">Add Insecure Cookie</button>
-    <button type="button" class="btn btn-secondary" onclick="addSecCookie();">Add Secure Cookie</button>
-    </br>
-    </p>
-    <blockquote>
-    <p id = "cookies">
-    </p>
-    </blockquote>
-  </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-     function createCookie(name,value) {
-      var expires = "";
-      var security = "";
-      if(document.getElementById("exp").checked)
-      {
-        var date = new Date();
-        date.setTime(date.getTime()+(10*1000));
-        expires = "; expires="+date.toGMTString();
-      } 
-      document.cookie = name+"="+value+ security + expires+"; path=/";
-      refreshCookies();
-    }
-    function refreshCookies()
-    {
-        var theCookies = document.cookie.split(';');
-        var aString = '';
-        for (var i = 1 ; i <= theCookies.length; i++) {
-            aString +=   '<span class="badge">'+theCookies[i-1].split('=')[0] + "\n"+'</span>';
-            if(i % 10 == 0)
-              aString += '</br>';
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: helvetica;
+            text-align: center;
         }
-
-        document.getElementById("cookies").innerHTML = aString;
-    }
-
-    
-    i = 1;
-    function addCookie()
-    {
-      var val = document.getElementById('val').value;
-      var expires = "";
-      if(document.getElementById("exp").checked)
-      {
-        var date = new Date();
-        date.setTime(date.getTime()+(10*1000));
-        expires = "; expires="+date.toGMTString();
-      }   
-
-      for(k = 1; k <= val; k++){
-      var security = "";
-      document.cookie = "InSecCook"+i+"="+"dummy"+ security + expires+"; path=/";
-      i++;
-    }
-      refreshCookies();
-    }
-
-    y = 1;
-    function addSecCookie()
-    {
-      var val = document.getElementById('val').value;
-      var expires = "";
-      if(document.getElementById("exp").checked)
-      {
-        var date = new Date();
-        date.setTime(date.getTime()+(10*1000));
-        expires = "; expires="+date.toGMTString();
-      } 
-      for(k = 1; k <= val; k++){
-      var security = "; secure";
-      document.cookie = "SecCook"+y+"="+"dummy"+ security + expires+"; path=/";
-      y++;
-    }
-      refreshCookies();
-    }
-    </script>
-  </body>
+    </style>
+</head>
+<body>
+    <h2>HTML Image Map test - click the nose of Servo Doge.</h1>
+    <img src="https://pbs.twimg.com/profile_images/621055164510658560/Cj-wqR55.png" alt="" usemap="#dogeMap">
+    <map id="dogeMap" name="dogeMap"><area shape="rect" coords="122,211,190,265" title="Servo Experiments" alt="Servo Experiments" href="http://coookietester.herokuapp.com" target="_self" /></map>
+</body>
 </html>
